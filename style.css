@@ -26,6 +26,7 @@ button{
     background-color:gray;
     border:1px solid black;
     font-size:32px;
+    cursor:pointer;
     color:#fff;
     width:25%;
     outline:none;

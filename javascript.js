@@ -9,6 +9,9 @@ const inputnumber=(number)=>{
     }
 }
 const layar=document.querySelector(".kalkulator-layar");
+const mergelayar=(number)=>{
+    layar.value+=number;
+}
 const updatelayar=(number)=>{
     layar.value=number;
 }
@@ -17,7 +20,15 @@ numbers.forEach((number)=>{
     number.addEventListener("click",(event)=>{
         inputnumber(event.target.value)
         console.log("number "+event.target.value+" ditekan");
-        updatelayar(current);
+        if(kalkulasi===''){
+            updatelayar(current);
+        }else{
+            if(current.includes('.')||current>0){
+                mergelayar(event.target.value);
+            }else{
+                mergelayar(current);
+            }
+        }
     })
 });
 const operators=document.querySelectorAll(".operator");
@@ -32,6 +43,7 @@ const inputoperator=(operator)=>{
         prevNumber=current;
     }
     kalkulasi=operator;
+    mergelayar(kalkulasi);
     current='0';
 };
 const equalsign=document.querySelector(".equal-sign");
@@ -74,7 +86,11 @@ const clearall=()=>{
 const desimal=document.querySelector(".decimal");
 desimal.addEventListener("click",(event)=>{
     inputdesimal(event.target.value);
-    updatelayar(current);
+    if(kalkulasi===''){
+        updatelayar(current);
+    }else{
+        mergelayar(event.target.value);
+    }
     console.log(event.target.value);
 });
 const inputdesimal=(dot)=>{
