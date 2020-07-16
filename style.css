@@ -31,15 +31,22 @@ button{
     width:25%;
     outline:none;
 }
+button span{
+    display:block;
+    font-size:10px;
+}
 .all-clear,.zero-btn{
     width:50%;
 }
-.operator,.equal-sign{
+.operator{
     background-color:orange;
 }
 button:hover{
     background-color:darkgray;
 }
-.operator:hover,.equal-sign:hover{
+.operator:hover{
     background-color:darkorange;
+}
+.equal-sign,.decimal,.all-clear{
+    background-color:cadetblue;
 }
